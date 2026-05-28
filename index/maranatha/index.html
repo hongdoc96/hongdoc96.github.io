@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>마라나타 — 고객 지원</title>
+<meta name="description" content="마라나타 앱 고객 지원 페이지. 자주 묻는 질문과 문의 안내." />
+<meta name="theme-color" content="#1A1A1E" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="마라나타 — 고객 지원" />
+<meta property="og:description" content="매일의 말씀 묵상과 기도를 위한 앱, 마라나타." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #1A1A1E;
+    --bg-elevated: #202024;
+    --bg-card: #25252A;
+    --border: #2E2E34;
+    --text: #E8E6E1;
+    --text-muted: #9A968E;
+    --text-faint: #6B6862;
+    --sapphire: #1C345F;
+    --sapphire-light: #2F4F8A;
+    --gold: #DAB271;
+    --gold-soft: #B89759;
+
+    --font-display: 'Cormorant Garamond', 'Noto Serif KR', serif;
+    --font-body: 'Noto Serif KR', 'Cormorant Garamond', serif;
+
+    --max-width: 720px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.75;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    padding: 0 24px;
+  }
+
+  /* Subtle background texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at top, rgba(28, 52, 95, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(218, 178, 113, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header */
+  header {
+    padding: 80px 0 64px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand-mark {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 56px);
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 540px;
+  }
+
+  /* Sections */
+  section {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section:last-of-type {
+    border-bottom: none;
+  }
+
+  .section-label {
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 32px;
+    letter-spacing: -0.01em;
+  }
+
+  /* FAQ */
+  .faq-list { list-style: none; }
+
+  .faq-item {
+    border-top: 1px solid var(--border);
+    padding: 24px 0;
+  }
+
+  .faq-item:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    padding: 0;
+    transition: color 0.2s ease;
+  }
+
+  .faq-question:hover { color: var(--gold); }
+
+  .faq-toggle {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    margin-top: 6px;
+  }
+
+  .faq-toggle::before,
+  .faq-toggle::after {
+    content: '';
+    position: absolute;
+    background: var(--gold-soft);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-toggle::before {
+    width: 100%;
+    height: 1px;
+    top: 50%;
+    left: 0;
+  }
+
+  .faq-toggle::after {
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+  }
+
+  .faq-item.open .faq-toggle::after {
+    transform: rotate(90deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 500px;
+    padding-top: 16px;
+  }
+
+  .faq-answer p + p { margin-top: 12px; }
+
+  /* Contact */
+  .contact-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 40px 36px;
+    margin-top: 8px;
+  }
+
+  .contact-label {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .contact-email {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+
+  .contact-email:hover {
+    border-bottom-color: var(--gold);
+  }
+
+  .contact-note {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* Links list */
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .link-item {
+    display: block;
+    padding: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    text-decoration: none;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .link-item:hover {
+    border-color: var(--gold-soft);
+    transform: translateY(-2px);
+  }
+
+  .link-item .link-label {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .link-item .link-title {
+    font-size: 16px;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* Footer */
+  footer {
+    padding: 64px 0 80px;
+    text-align: left;
+  }
+
+  .footer-mark {
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .footer-info {
+    font-size: 13px;
+    color: var(--text-faint);
+    line-height: 1.9;
+  }
+
+  .footer-info p + p { margin-top: 4px; }
+
+  .scripture {
+    margin: 32px 0 0;
+    font-family: var(--font-display);
+    font-size: 15px;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* Reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: reveal 0.8s ease forwards;
+  }
+
+  .reveal:nth-child(1) { animation-delay: 0.1s; }
+  .reveal:nth-child(2) { animation-delay: 0.2s; }
+  .reveal:nth-child(3) { animation-delay: 0.3s; }
+
+  @keyframes reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 0 20px; }
+    header { padding: 60px 0 48px; }
+    section { padding: 48px 0; }
+    .contact-card { padding: 28px 24px; }
+    .contact-email { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="brand-mark reveal">MARANATHA</div>
+    <h1 class="reveal">고객 지원</h1>
+    <p class="subtitle reveal">
+      마라나타를 사용해 주셔서 감사합니다.<br>
+      문의 사항과 자주 묻는 질문을 안내합니다.
+    </p>
+  </header>
+
+  <section id="faq">
+    <div class="section-label">자주 묻는 질문</div>
+    <h2>궁금하신 점이 있으신가요</h2>
+
+    <ul class="faq-list">
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>어떤 큐티 챌린지가 준비되어 있나요?</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>현재 17편의 큐티 챌린지, 총 386일 분량의 묵상이 준비되어 있습니다.</p>
+          <p>절기 묵상(사순절·대림절), 새벽 묵상, 통독 묵상 3편, 그리고 청년·가정·회복·고난·관계 등 주제별 묵상 11편으로 구성됩니다. 본문은 대한성서공회의 개역개정을 그대로 인용합니다.</p>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>로그인은 어떻게 하나요?</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>카카오톡, 구글, Apple 계정으로 간편하게 시작하실 수 있습니다.</p>
+          <p>별도의 회원가입 과정은 없으며, 사용하시던 계정으로 바로 시작할 수 있도록 만들었습니다.</p>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>응원하기는 무엇이며 어떻게 사용되나요?</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>마라나타의 모든 묵상 콘텐츠는 비용 없이 누구나 사용하실 수 있습니다.</p>
+          <p>응원하기는 본문 사용 라이선스와 앱 운영을 함께 이어가기 위한 방식입니다. 응원해 주시는 분들 덕분에 마라나타가 지속됩니다. 작은 응원도 큰 힘이 됩니다.</p>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>본문의 저작권은 어떻게 되나요?</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>마라나타는 대한성서공회의 개역개정 사용 라이선스를 정식으로 취득하여 운영됩니다.</p>
+          <p>모든 성경 본문은 임의로 수정하지 않고 원본을 그대로 인용합니다. 묵상 본문 역시 개혁주의 전통 안에서 작성되어, 안심하고 말씀 앞에 머무르실 수 있습니다.</p>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>계정이나 묵상 기록을 삭제하고 싶습니다.</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>앱 내 마이 화면의 설정에서 계정과 데이터 삭제를 직접 진행하실 수 있습니다.</p>
+          <p>도움이 필요하시면 아래 이메일로 연락해 주십시오. 신속하게 처리해 드리겠습니다.</p>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Android에서도 사용할 수 있나요?</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>네. iOS와 Android 모두 지원합니다. Google Play 스토어와 App Store에서 모두 다운로드하실 수 있습니다.</p>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>버그를 발견했거나 의견을 보내고 싶습니다.</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>발견하신 문제나 의견은 아래 이메일로 보내 주십시오.</p>
+          <p>가능하시면 사용하시는 기기, iOS 버전, 그리고 문제가 발생한 화면의 스크린샷을 함께 첨부해 주시면 더 빠른 해결에 도움이 됩니다.</p>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <section id="contact">
+    <div class="section-label">문의</div>
+    <h2>직접 연락해 주세요</h2>
+
+    <div class="contact-card">
+      <div class="contact-label">Email</div>
+      <a href="mailto:hongdoc96@gmail.com" class="contact-email">hongdoc96@gmail.com</a>
+      <p class="contact-note">
+        문의해 주신 내용에는 영업일 기준 1~3일 이내에 답변드리겠습니다.<br>
+        보내 주신 모든 의견을 소중하게 읽고 있습니다.
+      </p>
+    </div>
+  </section>
+
+  <section id="policies">
+    <div class="section-label">정책</div>
+    <h2>약관 및 개인정보</h2>
+
+    <div class="links-grid">
+      <a href="./privacy.html" class="link-item">
+        <div class="link-label">Privacy</div>
+        <div class="link-title">개인정보처리방침</div>
+      </a>
+      <a href="./terms.html" class="link-item">
+        <div class="link-label">Terms</div>
+        <div class="link-title">이용약관</div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-mark">HONGDOC STUDIO</div>
+    <div class="footer-info">
+      <p>홍독 스튜디오 · 대표 홍성원</p>
+      <p>사업자등록번호 355-58-00987</p>
+      <p>성경 본문 © 대한성서공회 개역개정</p>
+      <p>© 2026 Hongdoc Studio. All rights reserved.</p>
+    </div>
+    <p class="scripture">
+      “주 예수여 오시옵소서.” — 요한계시록 22:20
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  function toggleFaq(button) {
+    const item = button.parentElement;
+    item.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
