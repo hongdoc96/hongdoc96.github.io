@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>마라나타 — 개인정보 처리방침</title>
+<meta name="description" content="마라나타 앱 개인정보 처리방침." />
+<meta name="theme-color" content="#1A1A1E" />
+<meta name="robots" content="index, follow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #1A1A1E;
+    --bg-card: #25252A;
+    --border: #2E2E34;
+    --text: #E8E6E1;
+    --text-muted: #B5B1A8;
+    --text-faint: #6B6862;
+    --gold: #DAB271;
+    --gold-soft: #B89759;
+    --font-display: 'Cormorant Garamond', 'Noto Serif KR', serif;
+    --font-body: 'Noto Serif KR', serif;
+    --max-width: 760px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.85;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    padding: 0 24px;
+  }
+  .container { max-width: var(--max-width); margin: 0 auto; }
+
+  header {
+    padding: 80px 0 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  .brand-mark {
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 5vw, 46px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .meta {
+    font-size: 14px;
+    color: var(--text-faint);
+  }
+
+  main { padding: 48px 0 40px; }
+
+  .intro {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section { margin-bottom: 48px; }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+  h2 .num {
+    font-size: 14px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  p { font-size: 15px; color: var(--text-muted); margin-bottom: 14px; }
+  p:last-child { margin-bottom: 0; }
+
+  ul { list-style: none; margin: 14px 0; }
+  li {
+    font-size: 15px;
+    color: var(--text-muted);
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 10px;
+    line-height: 1.8;
+  }
+  li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold-soft);
+  }
+  li strong { color: var(--text); font-weight: 500; }
+
+  .table-block {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 28px 28px 12px;
+    margin: 20px 0;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 20px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .row:last-child { border-bottom: none; }
+  .row .key {
+    font-size: 14px;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .row .val { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
+
+  a { color: var(--gold); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+  a:hover { border-bottom-color: var(--gold); }
+
+  .contact-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 28px;
+    margin-top: 8px;
+  }
+  .contact-box .line { font-size: 14px; color: var(--text-muted); margin-bottom: 6px; }
+  .contact-box .line:last-child { margin-bottom: 0; }
+  .contact-box .line strong { color: var(--text); font-weight: 500; margin-right: 8px; }
+
+  footer {
+    padding: 48px 0 80px;
+    border-top: 1px solid var(--border);
+    margin-top: 24px;
+  }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+  }
+  .footer-info { font-size: 13px; color: var(--text-faint); line-height: 1.9; }
+  .footer-info p { font-size: 13px; color: var(--text-faint); margin-bottom: 2px; }
+
+  @media (max-width: 600px) {
+    header { padding: 60px 0 40px; }
+    .row { grid-template-columns: 1fr; gap: 6px; }
+    .table-block { padding: 24px 20px 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="brand-mark">MARANATHA</div>
+    <h1>개인정보 처리방침</h1>
+    <p class="meta">최종 개정일 · 2026년 6월 1일 · 시행일 2026년 6월 1일</p>
+  </header>
+
+  <main>
+    <p class="intro">
+      홍독 스튜디오(이하 '회사')는 마라나타(이하 '서비스')를 이용하는 당신의 개인정보를 소중히 여기며,
+      「개인정보 보호법」 등 관련 법령을 준수합니다. 본 방침은 회사가 어떤 정보를 수집하고,
+      어떻게 이용하며, 어떻게 보호하는지를 안내합니다.
+    </p>
+
+    <section>
+      <h2><span class="num">01</span> 수집하는 개인정보</h2>
+      <p>회사는 서비스 제공을 위해 다음의 정보를 수집합니다.</p>
+      <div class="table-block">
+        <div class="row">
+          <div class="key">로그인 정보</div>
+          <div class="val">카카오·구글·Apple 계정으로 로그인 시 제공되는 이메일 주소, 프로필 이름, 고유 식별자</div>
+        </div>
+        <div class="row">
+          <div class="key">이용 기록</div>
+          <div class="val">묵상 진행 상황, 작성하신 기도 제목 및 기록 등 서비스 내에서 직접 입력하신 콘텐츠</div>
+        </div>
+        <div class="row">
+          <div class="key">자동 수집 정보</div>
+          <div class="val">기기 종류, 운영체제 버전, 앱 버전, 오류 진단 정보 (서비스 안정화 목적)</div>
+        </div>
+        <div class="row">
+          <div class="key">결제 정보</div>
+          <div class="val">응원하기 이용 시 결제 내역. 카드 번호 등 결제 수단 정보는 회사가 보관하지 않으며, Apple 및 Google이 처리합니다.</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">02</span> 개인정보의 이용 목적</h2>
+      <ul>
+        <li><strong>서비스 제공</strong> — 로그인, 묵상 기록 저장 및 동기화, 기능 제공</li>
+        <li><strong>이용자 관리</strong> — 본인 확인, 문의 응대, 공지 전달</li>
+        <li><strong>서비스 개선</strong> — 오류 진단, 품질 개선, 새로운 기능 개발</li>
+        <li><strong>응원하기 처리</strong> — 결제 내역 확인 및 관련 문의 응대</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="num">03</span> 보유 및 이용 기간</h2>
+      <p>회사는 수집한 개인정보를 이용 목적이 달성되거나 당신이 회원 탈퇴를 요청할 때까지 보유합니다.
+        탈퇴 시 관련 정보는 지체 없이 파기합니다. 다만 관련 법령에 따라 보존이 필요한 경우, 해당 기간 동안 보관합니다.</p>
+      <ul>
+        <li>전자상거래 등에서의 소비자 보호에 관한 법률에 따른 결제·거래 기록: 5년</li>
+        <li>통신비밀보호법에 따른 서비스 이용 기록: 3개월</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="num">04</span> 제3자 제공 및 처리 위탁</h2>
+      <p>회사는 당신의 개인정보를 동의 없이 외부에 제공하지 않습니다. 다만 원활한 서비스 제공을 위해
+        아래의 신뢰할 수 있는 사업자에게 일부 업무를 위탁합니다.</p>
+      <div class="table-block">
+        <div class="row">
+          <div class="key">소셜 로그인</div>
+          <div class="val">카카오, Google, Apple — 계정 인증 처리</div>
+        </div>
+        <div class="row">
+          <div class="key">클라우드 인프라</div>
+          <div class="val">Google (Firebase) — 데이터 저장, 오류 진단, 인증 관리</div>
+        </div>
+        <div class="row">
+          <div class="key">결제 처리</div>
+          <div class="val">Apple, Google — 앱 내 응원하기 결제 처리</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">05</span> 이용자의 권리</h2>
+      <p>당신은 언제든지 다음의 권리를 행사할 수 있습니다.</p>
+      <ul>
+        <li>본인의 개인정보 열람 및 정정 요청</li>
+        <li>개인정보 삭제 및 회원 탈퇴 요청</li>
+        <li>개인정보 처리 정지 요청</li>
+      </ul>
+      <p>앱 내 '마이' 화면의 설정에서 계정 및 데이터 삭제를 직접 진행하실 수 있으며,
+        도움이 필요하시면 아래 연락처로 요청해 주십시오. 신속하게 처리해 드립니다.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">06</span> 아동의 개인정보</h2>
+      <p>마라나타는 만 14세 미만 아동을 주요 대상으로 하지 않습니다.
+        만 14세 미만 아동의 개인정보가 법정대리인의 동의 없이 수집된 사실이 확인될 경우,
+        회사는 해당 정보를 지체 없이 파기합니다.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">07</span> 개인정보의 안전성 확보</h2>
+      <p>회사는 당신의 개인정보를 안전하게 보호하기 위해 전송 구간 암호화, 접근 권한 관리 등
+        합리적인 보호 조치를 시행하고 있습니다.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">08</span> 개인정보 보호책임자 및 문의</h2>
+      <div class="contact-box">
+        <p class="line"><strong>책임자</strong> 홍성원 (홍독 스튜디오)</p>
+        <p class="line"><strong>이메일</strong> <a href="mailto:hongdoc96@gmail.com">hongdoc96@gmail.com</a></p>
+        <p class="line"><strong>사업자등록번호</strong> 355-58-00987</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">09</span> 고지 의무</h2>
+      <p>본 개인정보 처리방침이 변경되는 경우, 변경 사항을 시행 7일 전부터 본 페이지를 통해 공지합니다.
+        중요한 변경이 있을 경우 앱 내 공지 또는 이메일로 별도 안내합니다.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="./">고객 지원</a>
+      <a href="./terms.html">이용약관</a>
+      <a href="../">홍독 스튜디오</a>
+    </div>
+    <div class="footer-info">
+      <p>© 2026 Hongdoc Studio. All rights reserved.</p>
+      <p>성경 본문 © 대한성서공회 개역개정</p>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
