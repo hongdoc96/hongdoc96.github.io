@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FilmGrade — Support</title>
+<meta name="description" content="FilmGrade 고객 지원. 자주 묻는 질문과 문의 안내." />
+<meta name="theme-color" content="#0E0E10" />
+
+<meta property="og:title" content="FilmGrade — Support" />
+<meta property="og:description" content="필름 감성 카메라 & 프로 색보정." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0E0E10;
+    --bg-elevated: #151517;
+    --bg-card: #18181B;
+    --border: #232327;
+    --border-light: #2E2E33;
+    --text: #F4F4F5;
+    --text-muted: #A1A1AA;
+    --text-faint: #5E5E66;
+    --accent: #E8D5B0;
+    --accent-dim: #B5A684;
+    --film-red: #D94A3D;
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --max-width: 720px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    letter-spacing: -0.011em;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    padding: 0 24px;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 15% 10%, rgba(232, 213, 176, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 85% 90%, rgba(217, 74, 61, 0.04) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .container { max-width: var(--max-width); margin: 0 auto; position: relative; z-index: 1; }
+
+  /* Header */
+  header { padding: 88px 0 56px; border-bottom: 1px solid var(--border); }
+  .brand-row { display: flex; align-items: center; gap: 12px; margin-bottom: 36px; }
+  .brand-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--film-red);
+    box-shadow: 0 0 12px var(--film-red);
+  }
+  .brand-mark {
+    font-family: var(--font-display);
+    font-size: 13px; letter-spacing: 0.3em;
+    color: var(--accent); text-transform: uppercase; font-weight: 600;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(38px, 6vw, 52px);
+    font-weight: 600; line-height: 1.05;
+    letter-spacing: -0.03em; margin-bottom: 18px;
+  }
+  .subtitle { font-size: 15px; color: var(--text-muted); max-width: 480px; }
+
+  /* Sections */
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  .section-label {
+    font-family: var(--font-display);
+    font-size: 11px; letter-spacing: 0.3em;
+    color: var(--accent-dim); text-transform: uppercase;
+    margin-bottom: 18px; font-weight: 500;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 4vw, 32px);
+    font-weight: 600; margin-bottom: 32px;
+    letter-spacing: -0.02em;
+  }
+
+  /* FAQ */
+  .faq-list { list-style: none; }
+  .faq-item { border-top: 1px solid var(--border); padding: 22px 0; }
+  .faq-item:last-child { border-bottom: 1px solid var(--border); }
+  .faq-question {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 24px; cursor: pointer; background: none; border: none;
+    width: 100%; text-align: left; color: var(--text);
+    font-family: var(--font-body); font-size: 16px; font-weight: 500;
+    padding: 0; transition: color 0.2s ease;
+  }
+  .faq-question:hover { color: var(--accent); }
+  .faq-toggle { flex-shrink: 0; width: 18px; height: 18px; position: relative; margin-top: 5px; }
+  .faq-toggle::before, .faq-toggle::after {
+    content: ''; position: absolute; background: var(--accent-dim); transition: transform 0.3s ease;
+  }
+  .faq-toggle::before { width: 100%; height: 1.5px; top: 50%; left: 0; transform: translateY(-50%); }
+  .faq-toggle::after { width: 1.5px; height: 100%; top: 0; left: 50%; transform: translateX(-50%); }
+  .faq-item.open .faq-toggle::after { transform: translateX(-50%) rotate(90deg); }
+  .faq-answer {
+    max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease;
+    color: var(--text-muted); font-size: 14.5px; line-height: 1.75;
+  }
+  .faq-item.open .faq-answer { max-height: 500px; padding-top: 14px; }
+  .faq-answer p + p { margin-top: 10px; }
+
+  /* Contact */
+  .contact-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    padding: 36px 32px; margin-top: 4px;
+  }
+  .contact-label {
+    font-family: var(--font-display);
+    font-size: 11px; letter-spacing: 0.25em; color: var(--text-faint);
+    text-transform: uppercase; margin-bottom: 12px;
+  }
+  .contact-email {
+    display: inline-block; font-family: var(--font-display);
+    font-size: 26px; font-weight: 500; color: var(--accent);
+    text-decoration: none; letter-spacing: -0.02em;
+    border-bottom: 1px solid transparent; transition: border-color 0.2s ease;
+  }
+  .contact-email:hover { border-bottom-color: var(--accent); }
+  .contact-note { margin-top: 14px; font-size: 14px; color: var(--text-muted); }
+
+  /* Links */
+  .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+  .link-item {
+    display: block; padding: 22px; background: var(--bg-card);
+    border: 1px solid var(--border); color: var(--text);
+    text-decoration: none; transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .link-item:hover { border-color: var(--accent-dim); transform: translateY(-2px); }
+  .link-item .link-label {
+    font-family: var(--font-display);
+    font-size: 10px; letter-spacing: 0.25em; color: var(--accent);
+    text-transform: uppercase; margin-bottom: 7px;
+  }
+  .link-item .link-title { font-size: 15px; font-weight: 500; }
+
+  /* Footer */
+  footer { padding: 56px 0 80px; }
+  .footer-mark {
+    font-family: var(--font-display);
+    font-size: 12px; letter-spacing: 0.3em; color: var(--accent);
+    text-transform: uppercase; margin-bottom: 14px; font-weight: 600;
+  }
+  .footer-info { font-size: 12.5px; color: var(--text-faint); line-height: 1.85; }
+
+  @media (max-width: 600px) {
+    header { padding: 64px 0 44px; }
+    section { padding: 44px 0; }
+    .contact-card { padding: 28px 22px; }
+    .contact-email { font-size: 21px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="brand-row">
+      <span class="brand-dot"></span>
+      <span class="brand-mark">FilmGrade</span>
+    </div>
+    <h1>Support</h1>
+    <p class="subtitle">FilmGrade를 사용해 주셔서 감사합니다. 문의와 자주 묻는 질문을 안내합니다.</p>
+  </header>
+
+  <section id="faq">
+    <div class="section-label">FAQ</div>
+    <h2>자주 묻는 질문</h2>
+
+    <ul class="faq-list">
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>프리미엄은 구독인가요?</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>아니요. FilmGrade 프리미엄은 한 번만 결제하면 모든 프리셋과 기능을 영구히 사용할 수 있는 단일 결제입니다. 매달 빠져나가는 구독료가 없습니다.</p>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>기기를 바꿨는데 구입 내역이 사라졌어요.</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>설정 또는 프리미엄 화면의 "구입 복원" 버튼을 눌러 주세요. 같은 Apple 계정으로 로그인되어 있으면 이전 구입 내역이 다시 적용됩니다.</p>
+          <p>복원이 되지 않으면 아래 이메일로 문의해 주세요.</p>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>카메라와 사진 접근 권한은 왜 필요한가요?</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>카메라 권한은 앱 안에서 직접 촬영하기 위해, 사진 접근 권한은 앨범의 사진을 불러와 보정하고 결과물을 다시 저장하기 위해 사용됩니다.</p>
+          <p>모든 사진은 기기 안에서 처리되며, 동의 없이 외부로 전송되지 않습니다.</p>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>프리셋이 149개라는데 전부 무료인가요?</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>일부 프리셋과 기본 보정 도구는 비용 없이 사용하실 수 있습니다. 전체 프리셋과 LUT, 커스텀 프리셋 저장 등 모든 기능은 프리미엄 잠금 해제로 사용 가능합니다.</p>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>커스텀 프리셋은 어떻게 저장하나요?</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>보정값을 조정한 뒤 저장하면, 조정값과 효과·톤 곡선·LUT 설정이 하나의 프리셋으로 저장됩니다. 다음 촬영이나 편집에서 언제든 다시 불러올 수 있습니다.</p>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>버그를 발견했거나 기능을 제안하고 싶어요.</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>아래 이메일로 보내 주세요. 사용 기기, iOS 버전, 그리고 문제 화면의 스크린샷을 함께 첨부해 주시면 더 빠르게 도와드릴 수 있습니다.</p>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <section id="contact">
+    <div class="section-label">Contact</div>
+    <h2>문의하기</h2>
+    <div class="contact-card">
+      <div class="contact-label">Email</div>
+      <a href="mailto:hongdoc96@gmail.com" class="contact-email">hongdoc96@gmail.com</a>
+      <p class="contact-note">영업일 기준 1~3일 이내에 답변드립니다.</p>
+    </div>
+  </section>
+
+  <section id="policies">
+    <div class="section-label">Legal</div>
+    <h2>약관 및 개인정보</h2>
+    <div class="links-grid">
+      <a href="./privacy.html" class="link-item">
+        <div class="link-label">Privacy</div>
+        <div class="link-title">개인정보 처리방침</div>
+      </a>
+      <a href="./terms.html" class="link-item">
+        <div class="link-label">Terms</div>
+        <div class="link-title">이용약관</div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-mark">Hongdoc Studio</div>
+    <div class="footer-info">
+      <p>홍독 스튜디오 · 대표 홍성원</p>
+      <p>사업자등록번호 355-58-00987</p>
+      <p>© 2026 Hongdoc Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  function toggleFaq(button) {
+    button.parentElement.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>

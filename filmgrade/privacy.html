@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FilmGrade — 개인정보 처리방침</title>
+<meta name="description" content="FilmGrade 앱 개인정보 처리방침." />
+<meta name="theme-color" content="#0E0E10" />
+<meta name="robots" content="index, follow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0E0E10;
+    --bg-card: #18181B;
+    --border: #232327;
+    --text: #F4F4F5;
+    --text-muted: #B8B8BF;
+    --text-faint: #5E5E66;
+    --accent: #E8D5B0;
+    --accent-dim: #B5A684;
+    --film-red: #D94A3D;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --max-width: 760px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--text); font-family: var(--font-body);
+    font-weight: 300; line-height: 1.8; letter-spacing: -0.011em;
+    -webkit-font-smoothing: antialiased; min-height: 100vh; padding: 0 24px;
+  }
+  .container { max-width: var(--max-width); margin: 0 auto; }
+
+  header { padding: 80px 0 44px; border-bottom: 1px solid var(--border); }
+  .brand-row { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+  .brand-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--film-red); box-shadow: 0 0 10px var(--film-red); }
+  .brand-mark { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.3em; color: var(--accent); text-transform: uppercase; font-weight: 600; }
+  h1 { font-family: var(--font-display); font-size: clamp(32px, 5vw, 44px); font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 14px; }
+  .meta { font-size: 13.5px; color: var(--text-faint); }
+
+  main { padding: 44px 0 36px; }
+  .intro { font-size: 15.5px; color: var(--text-muted); margin-bottom: 44px; padding-bottom: 44px; border-bottom: 1px solid var(--border); }
+  section { margin-bottom: 44px; }
+  h2 { font-family: var(--font-display); font-size: 22px; font-weight: 600; margin-bottom: 18px; letter-spacing: -0.01em; display: flex; align-items: baseline; gap: 13px; }
+  h2 .num { font-size: 13px; color: var(--accent); font-weight: 600; }
+  p { font-size: 14.5px; color: var(--text-muted); margin-bottom: 13px; }
+  p:last-child { margin-bottom: 0; }
+  ul { list-style: none; margin: 13px 0; }
+  li { font-size: 14.5px; color: var(--text-muted); padding-left: 18px; position: relative; margin-bottom: 9px; line-height: 1.75; }
+  li::before { content: '—'; position: absolute; left: 0; color: var(--accent-dim); }
+  li strong { color: var(--text); font-weight: 500; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+  a:hover { border-bottom-color: var(--accent); }
+
+  .highlight-box { background: var(--bg-card); border: 1px solid var(--border); border-left: 2px solid var(--accent); padding: 24px 26px; margin: 18px 0; }
+  .highlight-box p { color: var(--text); font-size: 14.5px; margin: 0; }
+
+  .contact-box { background: var(--bg-card); border: 1px solid var(--border); padding: 26px; margin-top: 6px; }
+  .contact-box .line { font-size: 14px; color: var(--text-muted); margin-bottom: 6px; }
+  .contact-box .line:last-child { margin-bottom: 0; }
+  .contact-box .line strong { color: var(--text); font-weight: 500; margin-right: 8px; }
+
+  footer { padding: 44px 0 80px; border-top: 1px solid var(--border); margin-top: 20px; }
+  .footer-links { display: flex; gap: 22px; margin-bottom: 22px; flex-wrap: wrap; }
+  .footer-links a { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; border: none; }
+  .footer-info p { font-size: 12.5px; color: var(--text-faint); margin-bottom: 2px; }
+
+  @media (max-width: 600px) { header { padding: 60px 0 36px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="brand-row"><span class="brand-dot"></span><span class="brand-mark">FilmGrade</span></div>
+    <h1>개인정보 처리방침</h1>
+    <p class="meta">최종 개정일 · 2026년 6월 1일</p>
+  </header>
+
+  <main>
+    <p class="intro">
+      홍독 스튜디오(이하 '회사')는 FilmGrade(이하 '앱')를 이용하는 당신의 개인정보를 소중히 여기며,
+      관련 법령을 준수합니다. 본 방침은 회사가 어떤 정보를 다루고 어떻게 보호하는지를 안내합니다.
+    </p>
+
+    <section>
+      <h2><span class="num">01</span> 핵심 원칙</h2>
+      <div class="highlight-box">
+        <p>FilmGrade는 당신의 사진을 기기 안에서 처리합니다. 촬영하거나 보정한 사진은 회사 서버로 전송되지 않으며, 외부에 저장되지 않습니다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">02</span> 카메라 및 사진 접근</h2>
+      <p>FilmGrade는 다음 목적으로 기기 권한을 사용합니다.</p>
+      <ul>
+        <li><strong>카메라</strong> — 앱 안에서 사진을 직접 촬영하기 위해</li>
+        <li><strong>사진 라이브러리</strong> — 앨범의 사진을 불러와 보정하고, 결과물을 다시 저장하기 위해</li>
+      </ul>
+      <p>이 접근은 보정 기능을 위한 것이며, 사진 자체를 수집하거나 전송하지 않습니다. 권한은 기기 설정에서 언제든 변경할 수 있습니다.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">03</span> 수집하는 정보</h2>
+      <p>회사는 서비스 운영을 위해 최소한의 정보만 다룹니다.</p>
+      <ul>
+        <li><strong>구매 정보</strong> — 프리미엄 구입 및 복원 내역. 카드 번호 등 결제 수단 정보는 회사가 보관하지 않으며 Apple이 처리합니다.</li>
+        <li><strong>진단 정보</strong> — 앱 오류 진단 및 안정화를 위한 기기 종류, 운영체제 버전, 충돌 로그 (수집하는 경우)</li>
+      </ul>
+      <p>FilmGrade는 별도의 회원 가입이나 로그인을 요구하지 않으며, 이름·이메일 등 계정 정보를 수집하지 않습니다.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">04</span> 제3자 처리 위탁</h2>
+      <ul>
+        <li><strong>Apple</strong> — 프리미엄 결제 및 구입 복원 처리</li>
+        <li><strong>Google (Firebase)</strong> — 오류 진단 및 앱 안정화 (해당하는 경우)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="num">05</span> 보유 및 파기</h2>
+      <p>회사는 진단 정보를 서비스 개선 목적이 달성되는 즉시 파기합니다. 구매 내역은 관련 법령에 따라 필요한 기간 동안 보관합니다.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">06</span> 아동의 개인정보</h2>
+      <p>FilmGrade는 만 14세 미만 아동을 주요 대상으로 하지 않으며, 별도의 개인정보를 수집하지 않습니다.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">07</span> 문의</h2>
+      <div class="contact-box">
+        <p class="line"><strong>책임자</strong> 홍성원 (홍독 스튜디오)</p>
+        <p class="line"><strong>이메일</strong> <a href="mailto:hongdoc96@gmail.com">hongdoc96@gmail.com</a></p>
+        <p class="line"><strong>사업자등록번호</strong> 355-58-00987</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">08</span> 고지 의무</h2>
+      <p>본 방침이 변경되는 경우, 시행 7일 전부터 본 페이지를 통해 공지합니다.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="./">Support</a>
+      <a href="./terms.html">이용약관</a>
+      <a href="../">Hongdoc Studio</a>
+    </div>
+    <div class="footer-info">
+      <p>© 2026 Hongdoc Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
