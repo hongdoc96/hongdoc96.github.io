@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FilmGrade app privacy policy.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0E0E10">
+<meta property="og:title" content="FilmGrade — Privacy Policy">
+<meta property="og:type" content="website">
+<title>FilmGrade — Privacy Policy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0E0E10;
+    --ink:#C9C9CF;
+    --ink-dim:#7E7E88;
+    --ink-bright:#ECECEF;
+    --gold:#D9B26E;
+    --gold-soft:#A8accb00;
+    --line:rgba(255,255,255,.09);
+    --line-soft:rgba(255,255,255,.05);
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+    --serif:'Newsreader',Georgia,serif;
+    --sans:'Hanken Grotesk',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    position:relative;
+    overflow-x:hidden;
+  }
+  /* 상단 시네마틱 글로우 */
+  body::before{
+    content:"";
+    position:fixed;
+    top:-30vh;left:50%;
+    transform:translateX(-50%);
+    width:120vw;height:60vh;
+    background:radial-gradient(ellipse at center,rgba(217,178,110,.08),transparent 62%);
+    pointer-events:none;z-index:0;
+  }
+  .wrap{position:relative;z-index:1;}
+
+  /* 상단 바 */
+  .topbar{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:26px clamp(22px,5vw,48px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .brand{
+    font-family:var(--mono);font-weight:500;font-size:14px;
+    letter-spacing:.28em;color:var(--ink-bright);
+  }
+  .topbar-tag{
+    font-family:var(--mono);font-size:11px;
+    letter-spacing:.34em;color:var(--gold);
+  }
+
+  /* 본문 컬럼 */
+  main{
+    max-width:720px;margin:0 auto;
+    padding:clamp(56px,11vw,104px) clamp(22px,5vw,48px) 40px;
+  }
+  .eyebrow{
+    font-family:var(--mono);font-size:11.5px;
+    letter-spacing:.32em;color:var(--gold);
+    margin-bottom:26px;
+  }
+  h1{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(46px,9vw,76px);
+    line-height:1.02;
+    letter-spacing:-.01em;
+    color:var(--ink-bright);
+    margin-bottom:30px;
+  }
+  h1 em{font-style:italic;color:var(--gold);font-weight:500;}
+  .updated{
+    font-family:var(--mono);font-size:12.5px;
+    letter-spacing:.06em;color:var(--ink-dim);
+    padding-bottom:34px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:40px;
+  }
+  .intro{
+    font-size:18.5px;line-height:1.78;
+    color:var(--ink);
+    margin-bottom:62px;
+    max-width:60ch;
+  }
+
+  /* 조항 */
+  .clause{
+    display:grid;
+    grid-template-columns:62px 1fr;
+    gap:8px 26px;
+    padding:34px 0;
+    border-top:1px solid var(--line-soft);
+  }
+  .clause:first-of-type{border-top:none;}
+  .num{
+    font-family:var(--mono);font-weight:500;
+    font-size:15px;color:var(--gold);
+    letter-spacing:.04em;padding-top:5px;
+  }
+  .clause h2{
+    font-family:var(--serif);font-weight:500;
+    font-size:25px;line-height:1.25;
+    color:var(--ink-bright);
+    letter-spacing:-.005em;
+    margin-bottom:14px;
+  }
+  .clause p{margin-bottom:13px;}
+  .clause p:last-child{margin-bottom:0;}
+
+  ul{list-style:none;margin:6px 0 13px;}
+  li{
+    position:relative;padding-left:22px;margin-bottom:11px;
+    line-height:1.66;
+  }
+  li::before{
+    content:"";position:absolute;left:2px;top:13px;
+    width:9px;height:1.5px;background:var(--gold);
+  }
+  li b,.term{color:var(--ink-bright);font-weight:600;}
+
+  .contact-row{
+    display:flex;flex-wrap:wrap;gap:4px 14px;
+    margin-bottom:9px;
+  }
+  .contact-row .k{
+    font-family:var(--mono);font-size:12px;
+    letter-spacing:.04em;color:var(--ink-dim);
+    min-width:170px;
+  }
+  .contact-row .v{color:var(--ink-bright);}
+  a{color:var(--gold);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s;}
+  a:hover{border-bottom-color:var(--gold);}
+
+  /* 푸터 */
+  footer{
+    max-width:720px;margin:0 auto;
+    padding:48px clamp(22px,5vw,48px) 72px;
+    border-top:1px solid var(--line);
+    margin-top:40px;
+  }
+  .fnav{
+    display:flex;flex-wrap:wrap;gap:10px 20px;
+    font-family:var(--mono);font-size:12.5px;
+    letter-spacing:.05em;margin-bottom:22px;
+  }
+  .fnav a{color:var(--ink);}
+  .fnav a:hover{color:var(--gold);}
+  .copy{
+    font-family:var(--mono);font-size:11.5px;
+    letter-spacing:.05em;color:var(--ink-dim);line-height:1.7;
+  }
+  .copy .studio{color:var(--ink);display:block;margin-bottom:4px;}
+
+  /* 진입 모션 */
+  @media (prefers-reduced-motion:no-preference){
+    .eyebrow,h1,.updated,.intro,.clause{
+      opacity:0;transform:translateY(14px);
+      animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards;
+    }
+    h1{animation-delay:.05s;}
+    .updated{animation-delay:.12s;}
+    .intro{animation-delay:.18s;}
+    .clause:nth-of-type(1){animation-delay:.24s;}
+    .clause:nth-of-type(2){animation-delay:.30s;}
+    .clause:nth-of-type(3){animation-delay:.36s;}
+    .clause:nth-of-type(4){animation-delay:.42s;}
+    .clause:nth-of-type(5){animation-delay:.48s;}
+    .clause:nth-of-type(6){animation-delay:.52s;}
+    .clause:nth-of-type(7){animation-delay:.56s;}
+    .clause:nth-of-type(8){animation-delay:.60s;}
+  }
+  @keyframes rise{to{opacity:1;transform:none;}}
+
+  @media (max-width:560px){
+    body{font-size:16px;}
+    .clause{grid-template-columns:1fr;gap:6px;}
+    .num{padding-top:0;font-size:13px;}
+    .contact-row .k{min-width:0;width:100%;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="topbar">
+    <span class="brand">FILMGRADE</span>
+    <span class="topbar-tag">PRIVACY</span>
+  </header>
+
+  <main>
+    <div class="eyebrow">FILMGRADE — LEGAL</div>
+    <h1>Privacy <em>Policy</em></h1>
+    <div class="updated">Last updated · June 1, 2026</div>
+
+    <p class="intro">Hongdoc Studio (“the Company”) respects the privacy of everyone who uses FilmGrade (“the App”) and complies with applicable laws. This policy explains what information we handle and how we protect it.</p>
+
+    <section class="clause">
+      <div class="num">01</div>
+      <div class="body">
+        <h2>Core Principle</h2>
+        <p>FilmGrade processes your photos on your device. Photos you capture or edit are never sent to our servers and are never stored externally.</p>
+      </div>
+    </section>
+
+    <section class="clause">
+      <div class="num">02</div>
+      <div class="body">
+        <h2>Camera &amp; Photo Access</h2>
+        <p>FilmGrade uses device permissions for the following purposes:</p>
+        <ul>
+          <li><span class="term">Camera</span> — to take photos directly inside the app.</li>
+          <li><span class="term">Photo Library</span> — to import photos from your album for editing and to save the results back.</li>
+        </ul>
+        <p>This access exists solely to power editing features; the App does not collect or transmit the photos themselves. You can change these permissions at any time in your device settings.</p>
+      </div>
+    </section>
+
+    <section class="clause">
+      <div class="num">03</div>
+      <div class="body">
+        <h2>Information We Collect</h2>
+        <p>We handle only the minimum information needed to run the service.</p>
+        <ul>
+          <li><span class="term">Purchase information</span> — records of premium purchases and restorations. Payment details such as card numbers are never stored by us; they are handled by Apple.</li>
+          <li><span class="term">Diagnostic information</span> — device model, operating system version, and crash logs used to diagnose and stabilize app errors, where collected.</li>
+        </ul>
+        <p>FilmGrade does not require any sign-up or login, and does not collect account information such as your name or email address.</p>
+      </div>
+    </section>
+
+    <section class="clause">
+      <div class="num">04</div>
+      <div class="body">
+        <h2>Third-Party Processing</h2>
+        <ul>
+          <li><span class="term">Apple</span> — processes premium payments and purchase restoration.</li>
+          <li><span class="term">Google (Firebase)</span> — error diagnostics and app stabilization, where applicable.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="clause">
+      <div class="num">05</div>
+      <div class="body">
+        <h2>Retention &amp; Deletion</h2>
+        <p>We delete diagnostic information as soon as its purpose — improving the service — has been fulfilled. Purchase records are retained for the period required by applicable law.</p>
+      </div>
+    </section>
+
+    <section class="clause">
+      <div class="num">06</div>
+      <div class="body">
+        <h2>Children’s Privacy</h2>
+        <p>FilmGrade is not directed at children under the age of 14 and does not knowingly collect their personal information.</p>
+      </div>
+    </section>
+
+    <section class="clause">
+      <div class="num">07</div>
+      <div class="body">
+        <h2>Contact</h2>
+        <div class="contact-row"><span class="k">Officer in charge</span><span class="v">Sungwon Hong (Hongdoc Studio)</span></div>
+        <div class="contact-row"><span class="k">Email</span><span class="v"><a href="mailto:hongdoc96@gmail.com">hongdoc96@gmail.com</a></span></div>
+        <div class="contact-row"><span class="k">Business registration no.</span><span class="v">355-58-00987</span></div>
+      </div>
+    </section>
+
+    <section class="clause">
+      <div class="num">08</div>
+      <div class="body">
+        <h2>Changes to This Policy</h2>
+        <p>If this policy changes, we will post notice on this page at least 7 days before the changes take effect.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <nav class="fnav">
+      <a href="https://hongdoc96.github.io/filmgrade/">Support</a>
+      <a href="https://hongdoc96.github.io/filmgrade/terms.html">Terms of Service</a>
+      <a href="https://hongdoc96.github.io/">Hongdoc Studio</a>
+    </nav>
+    <div class="copy">
+      <span class="studio">Hongdoc Studio · Sungwon Hong</span>
+      © 2026 Hongdoc Studio. All rights reserved.
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
