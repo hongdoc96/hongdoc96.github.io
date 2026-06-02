@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FilmGrade — 隱私權政策</title>
+<meta name="description" content="FilmGrade App 隱私權政策。" />
+<meta name="theme-color" content="#0E0E10" />
+<meta name="robots" content="index, follow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0E0E10;
+    --bg-card: #18181B;
+    --border: #232327;
+    --text: #F4F4F5;
+    --text-muted: #B8B8BF;
+    --text-faint: #5E5E66;
+    --accent: #E8D5B0;
+    --accent-dim: #B5A684;
+    --film-red: #D94A3D;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --max-width: 760px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--text); font-family: var(--font-body);
+    font-weight: 300; line-height: 1.8; letter-spacing: -0.011em;
+    -webkit-font-smoothing: antialiased; min-height: 100vh; padding: 0 24px;
+  }
+  .container { max-width: var(--max-width); margin: 0 auto; }
+
+  header { padding: 80px 0 44px; border-bottom: 1px solid var(--border); }
+  .brand-row { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+  .brand-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--film-red); box-shadow: 0 0 10px var(--film-red); }
+  .brand-mark { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.3em; color: var(--accent); text-transform: uppercase; font-weight: 600; }
+  h1 { font-family: var(--font-display); font-size: clamp(32px, 5vw, 44px); font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 14px; }
+  .meta { font-size: 13.5px; color: var(--text-faint); }
+
+  main { padding: 44px 0 36px; }
+  .intro { font-size: 15.5px; color: var(--text-muted); margin-bottom: 44px; padding-bottom: 44px; border-bottom: 1px solid var(--border); }
+  section { margin-bottom: 44px; }
+  h2 { font-family: var(--font-display); font-size: 22px; font-weight: 600; margin-bottom: 18px; letter-spacing: -0.01em; display: flex; align-items: baseline; gap: 13px; }
+  h2 .num { font-size: 13px; color: var(--accent); font-weight: 600; }
+  p { font-size: 14.5px; color: var(--text-muted); margin-bottom: 13px; }
+  p:last-child { margin-bottom: 0; }
+  ul { list-style: none; margin: 13px 0; }
+  li { font-size: 14.5px; color: var(--text-muted); padding-left: 18px; position: relative; margin-bottom: 9px; line-height: 1.75; }
+  li::before { content: '—'; position: absolute; left: 0; color: var(--accent-dim); }
+  li strong { color: var(--text); font-weight: 500; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+  a:hover { border-bottom-color: var(--accent); }
+
+  .highlight-box { background: var(--bg-card); border: 1px solid var(--border); border-left: 2px solid var(--accent); padding: 24px 26px; margin: 18px 0; }
+  .highlight-box p { color: var(--text); font-size: 14.5px; margin: 0; }
+
+  .contact-box { background: var(--bg-card); border: 1px solid var(--border); padding: 26px; margin-top: 6px; }
+  .contact-box .line { font-size: 14px; color: var(--text-muted); margin-bottom: 6px; }
+  .contact-box .line:last-child { margin-bottom: 0; }
+  .contact-box .line strong { color: var(--text); font-weight: 500; margin-right: 8px; }
+
+  footer { padding: 44px 0 80px; border-top: 1px solid var(--border); margin-top: 20px; }
+  .footer-links { display: flex; gap: 22px; margin-bottom: 22px; flex-wrap: wrap; }
+  .footer-links a { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; border: none; }
+  .footer-info p { font-size: 12.5px; color: var(--text-faint); margin-bottom: 2px; }
+
+  @media (max-width: 600px) { header { padding: 60px 0 36px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="brand-row"><span class="brand-dot"></span><span class="brand-mark">FilmGrade</span></div>
+    <h1>隱私權政策</h1>
+    <p class="meta">最後修訂日 · 2026年6月1日</p>
+  </header>
+
+  <main>
+    <p class="intro">
+      Hongdoc Studio（以下稱「本公司」）重視使用 FilmGrade（以下稱「本 App」）之您的個人資料，
+      並遵守相關法令。本政策說明本公司處理哪些資料以及如何保護。
+    </p>
+
+    <section>
+      <h2><span class="num">01</span> 核心原則</h2>
+      <div class="highlight-box">
+        <p>FilmGrade 在您的裝置內處理照片。拍攝或編修的照片不會傳送至本公司伺服器，也不會儲存於外部。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">02</span> 相機與照片存取</h2>
+      <p>FilmGrade 基於以下目的使用裝置權限。</p>
+      <ul>
+        <li><strong>相機</strong> — 用於在 App 內直接拍攝</li>
+        <li><strong>照片圖庫</strong> — 用於讀取相簿照片進行編修並儲存成果</li>
+      </ul>
+      <p>此存取僅用於編修功能，不會收集或傳送照片本身。您可隨時在裝置設定中變更權限。</p>
+    </section>
+
+    <section>
+      <h2><span class="num">03</span> 收集的資訊</h2>
+      <p>本公司僅為營運服務處理最少量的資訊。</p>
+      <ul>
+        <li><strong>購買資訊</strong> — 付費版的購買與回復紀錄。卡號等付款方式資訊不由本公司保存，而是由 Apple 處理。</li>
+        <li><strong>診斷資訊</strong> — 用於診斷與穩定 App 的裝置類型、作業系統版本、當機紀錄（如有收集）</li>
+      </ul>
+      <p>FilmGrade 不要求另行註冊或登入，也不會收集姓名、電子郵件等帳號資訊。</p>
+    </section>
+
+    <section>
+      <h2><span class="num">04</span> 第三方處理委託</h2>
+      <ul>
+        <li><strong>Apple</strong> — 處理付費版的付款與購買回復</li>
+        <li><strong>Google (Firebase)</strong> — 錯誤診斷與 App 穩定化（如適用）</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="num">05</span> 保存與刪除</h2>
+      <p>本公司於服務改善目的達成後即刪除診斷資訊。購買紀錄則依相關法令保存必要期間。</p>
+    </section>
+
+    <section>
+      <h2><span class="num">06</span> 兒童的個人資料</h2>
+      <p>FilmGrade 並非以未滿 14 歲兒童為主要對象，且不會另行收集其個人資料。</p>
+    </section>
+
+    <section>
+      <h2><span class="num">07</span> 聯絡</h2>
+      <div class="contact-box">
+        <p class="line"><strong>負責人</strong> Sungwon Hong (Hongdoc Studio)</p>
+        <p class="line"><strong>電子郵件</strong> <a href="mailto:hongdoc96@gmail.com">hongdoc96@gmail.com</a></p>
+        <p class="line"><strong>營業登記號</strong> 355-58-00987</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">08</span> 告知義務</h2>
+      <p>本政策如有變更，將於施行 7 日前透過本頁面公告。</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="./index_zh.html">Support</a>
+      <a href="./terms_zh.html">使用條款</a>
+      <a href="../">Hongdoc Studio</a>
+    </div>
+    <div class="footer-info">
+      <p>© 2026 Hongdoc Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

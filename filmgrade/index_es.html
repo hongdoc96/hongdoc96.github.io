@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FilmGrade — Soporte</title>
+<meta name="description" content="Soporte de FilmGrade. Preguntas frecuentes e información de contacto." />
+<meta name="theme-color" content="#0E0E10" />
+
+<meta property="og:title" content="FilmGrade — Soporte" />
+<meta property="og:description" content="Cámara con estética analógica y gradación de color profesional." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0E0E10;
+    --bg-elevated: #151517;
+    --bg-card: #18181B;
+    --border: #232327;
+    --border-light: #2E2E33;
+    --text: #F4F4F5;
+    --text-muted: #A1A1AA;
+    --text-faint: #5E5E66;
+    --accent: #E8D5B0;
+    --accent-dim: #B5A684;
+    --film-red: #D94A3D;
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --max-width: 720px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    letter-spacing: -0.011em;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    padding: 0 24px;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 15% 10%, rgba(232, 213, 176, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 85% 90%, rgba(217, 74, 61, 0.04) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .container { max-width: var(--max-width); margin: 0 auto; position: relative; z-index: 1; }
+
+  /* Header */
+  header { padding: 88px 0 56px; border-bottom: 1px solid var(--border); }
+  .brand-row { display: flex; align-items: center; gap: 12px; margin-bottom: 36px; }
+  .brand-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--film-red);
+    box-shadow: 0 0 12px var(--film-red);
+  }
+  .brand-mark {
+    font-family: var(--font-display);
+    font-size: 13px; letter-spacing: 0.3em;
+    color: var(--accent); text-transform: uppercase; font-weight: 600;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(38px, 6vw, 52px);
+    font-weight: 600; line-height: 1.05;
+    letter-spacing: -0.03em; margin-bottom: 18px;
+  }
+  .subtitle { font-size: 15px; color: var(--text-muted); max-width: 480px; }
+
+  /* Sections */
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  .section-label {
+    font-family: var(--font-display);
+    font-size: 11px; letter-spacing: 0.3em;
+    color: var(--accent-dim); text-transform: uppercase;
+    margin-bottom: 18px; font-weight: 500;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 4vw, 32px);
+    font-weight: 600; margin-bottom: 32px;
+    letter-spacing: -0.02em;
+  }
+
+  /* FAQ */
+  .faq-list { list-style: none; }
+  .faq-item { border-top: 1px solid var(--border); padding: 22px 0; }
+  .faq-item:last-child { border-bottom: 1px solid var(--border); }
+  .faq-question {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 24px; cursor: pointer; background: none; border: none;
+    width: 100%; text-align: left; color: var(--text);
+    font-family: var(--font-body); font-size: 16px; font-weight: 500;
+    padding: 0; transition: color 0.2s ease;
+  }
+  .faq-question:hover { color: var(--accent); }
+  .faq-toggle { flex-shrink: 0; width: 18px; height: 18px; position: relative; margin-top: 5px; }
+  .faq-toggle::before, .faq-toggle::after {
+    content: ''; position: absolute; background: var(--accent-dim); transition: transform 0.3s ease;
+  }
+  .faq-toggle::before { width: 100%; height: 1.5px; top: 50%; left: 0; transform: translateY(-50%); }
+  .faq-toggle::after { width: 1.5px; height: 100%; top: 0; left: 50%; transform: translateX(-50%); }
+  .faq-item.open .faq-toggle::after { transform: translateX(-50%) rotate(90deg); }
+  .faq-answer {
+    max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease;
+    color: var(--text-muted); font-size: 14.5px; line-height: 1.75;
+  }
+  .faq-item.open .faq-answer { max-height: 500px; padding-top: 14px; }
+  .faq-answer p + p { margin-top: 10px; }
+
+  /* Contact */
+  .contact-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    padding: 36px 32px; margin-top: 4px;
+  }
+  .contact-label {
+    font-family: var(--font-display);
+    font-size: 11px; letter-spacing: 0.25em; color: var(--text-faint);
+    text-transform: uppercase; margin-bottom: 12px;
+  }
+  .contact-email {
+    display: inline-block; font-family: var(--font-display);
+    font-size: 26px; font-weight: 500; color: var(--accent);
+    text-decoration: none; letter-spacing: -0.02em;
+    border-bottom: 1px solid transparent; transition: border-color 0.2s ease;
+  }
+  .contact-email:hover { border-bottom-color: var(--accent); }
+  .contact-note { margin-top: 14px; font-size: 14px; color: var(--text-muted); }
+
+  /* Links */
+  .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+  .link-item {
+    display: block; padding: 22px; background: var(--bg-card);
+    border: 1px solid var(--border); color: var(--text);
+    text-decoration: none; transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .link-item:hover { border-color: var(--accent-dim); transform: translateY(-2px); }
+  .link-item .link-label {
+    font-family: var(--font-display);
+    font-size: 10px; letter-spacing: 0.25em; color: var(--accent);
+    text-transform: uppercase; margin-bottom: 7px;
+  }
+  .link-item .link-title { font-size: 15px; font-weight: 500; }
+
+  /* Footer */
+  footer { padding: 56px 0 80px; }
+  .footer-mark {
+    font-family: var(--font-display);
+    font-size: 12px; letter-spacing: 0.3em; color: var(--accent);
+    text-transform: uppercase; margin-bottom: 14px; font-weight: 600;
+  }
+  .footer-info { font-size: 12.5px; color: var(--text-faint); line-height: 1.85; }
+
+  @media (max-width: 600px) {
+    header { padding: 64px 0 44px; }
+    section { padding: 44px 0; }
+    .contact-card { padding: 28px 22px; }
+    .contact-email { font-size: 21px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="brand-row">
+      <span class="brand-dot"></span>
+      <span class="brand-mark">FilmGrade</span>
+    </div>
+    <h1>Support</h1>
+    <p class="subtitle">Gracias por usar FilmGrade. A continuación encontrará el contacto y las preguntas frecuentes.</p>
+  </header>
+
+  <section id="faq">
+    <div class="section-label">FAQ</div>
+    <h2>Preguntas frecuentes</h2>
+
+    <ul class="faq-list">
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Premium es una suscripción?</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>No. FilmGrade Premium es un pago único que desbloquea todos los ajustes y funciones para siempre. No hay cuotas mensuales.</p>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Cambié de dispositivo y mi compra desapareció.</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>Pulse el botón “Restaurar compras” en la pantalla de Ajustes o Premium. Si ha iniciado sesión con la misma cuenta de Apple, su compra anterior se restaurará.</p>
+          <p>Si la restauración no funciona, contáctenos en el correo de abajo.</p>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Por qué necesita acceso a la cámara y las fotos?</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>El acceso a la cámara se usa para tomar fotos dentro de la app, y el acceso a las fotos para importar imágenes de tu álbum, editarlas y guardar el resultado.</p>
+          <p>Todas las fotos se procesan en tu dispositivo y nunca se envían a ningún lugar sin tu consentimiento.</p>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Hay 149 ajustes preestablecidos, ¿son todos gratuitos?</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>Una selección de ajustes y las herramientas de edición básicas son gratuitas. La biblioteca completa de ajustes, los LUT, el guardado de ajustes personalizados y todas las demás funciones se desbloquean con Premium.</p>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Cómo guardo un ajuste personalizado?</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>Tras ajustar tus ediciones y guardarlas, tus ajustes, efectos, curva de tono y configuración de LUT se almacenan juntos como un único preestablecido, listo para usar en tu próxima sesión.</p>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Encontré un error o quiero sugerir una función.</span>
+          <span class="faq-toggle"></span>
+        </button>
+        <div class="faq-answer">
+          <p>Escríbenos al correo de abajo. Si incluyes el modelo de tu dispositivo, la versión de iOS y una captura del problema, podremos ayudarte más rápido.</p>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <section id="contact">
+    <div class="section-label">Contact</div>
+    <h2>Contacto</h2>
+    <div class="contact-card">
+      <div class="contact-label">Email</div>
+      <a href="mailto:hongdoc96@gmail.com" class="contact-email">hongdoc96@gmail.com</a>
+      <p class="contact-note">Respondemos en un plazo de 1 a 3 días hábiles.</p>
+    </div>
+  </section>
+
+  <section id="policies">
+    <div class="section-label">Legal</div>
+    <h2>Términos y privacidad</h2>
+    <div class="links-grid">
+      <a href="./privacy_es.html" class="link-item">
+        <div class="link-label">Privacy</div>
+        <div class="link-title">Política de privacidad</div>
+      </a>
+      <a href="./terms_es.html" class="link-item">
+        <div class="link-label">Terms</div>
+        <div class="link-title">Términos de servicio</div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-mark">Hongdoc Studio</div>
+    <div class="footer-info">
+      <p>Hongdoc Studio · Sungwon Hong</p>
+      <p>N.º de registro mercantil 355-58-00987</p>
+      <p>© 2026 Hongdoc Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  function toggleFaq(button) {
+    button.parentElement.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
