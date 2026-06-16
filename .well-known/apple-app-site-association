@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "BSWF2Y5776.com.hongdoc.maranatha",
+        "paths": ["/join/*"]
+      }
+    ]
+  }
+}

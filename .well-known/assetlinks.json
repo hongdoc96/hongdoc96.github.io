@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.hongdoc.maranatha",
+      "sha256_cert_fingerprints": [
+        "A1:AD:18:55:9C:FE:00:69:AC:DC:46:6A:53:60:52:B6:77:68:96:69:3E:DB:99:13:65:02:1C:E9:78:C4:43:30",
+        "C6:6B:9E:A7:1A:94:13:B1:EF:86:C7:39:54:6F:A2:E6:FE:68:08:F0:C8:DD:27:6E:4D:BF:06:8C:07:F5:C6:78"
+      ]
+    }
+  }
+]
