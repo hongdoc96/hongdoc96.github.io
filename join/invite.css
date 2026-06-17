@@ -1,0 +1,101 @@
+/* 마라나타 초대 랜딩 (딥링크 미설치 fallback) — 앱 없는 사람이 초대 링크를
+   탭하면 404 대신 이 페이지가 뜬다. 앱이 설치돼 있으면 App Links/Universal
+   Links가 앱을 바로 열어 이 페이지는 안 보인다. 기존 랜딩(차콜+골드)과 톤 통일. */
+:root {
+  --bg: #1A1A1E;
+  --bg-card: #25252A;
+  --border: #2E2E34;
+  --text: #E8E6E1;
+  --text-muted: #9A968E;
+  --sapphire: #1C345F;
+  --sapphire-light: #2F4F8A;
+  --gold: #DAB271;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    "Noto Sans KR", "Segoe UI", Roboto, sans-serif;
+  min-height: 100%;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px 28px 28px;
+  text-align: center;
+}
+.logo {
+  color: var(--gold);
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+h1 { font-size: 22px; font-weight: 700; line-height: 1.4; }
+.sub {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+.code-box {
+  margin: 24px 0;
+  padding: 16px;
+  background: rgba(218, 178, 113, 0.08);
+  border: 1px solid rgba(218, 178, 113, 0.25);
+  border-radius: 12px;
+}
+.code-label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.code {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+.btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-app {
+  background: var(--sapphire);
+  color: #fff;
+  margin-bottom: 18px;
+  border: 1px solid var(--sapphire-light);
+}
+.btn-app:active { background: var(--sapphire-light); }
+.stores { display: flex; flex-direction: column; gap: 10px; }
+.btn-store {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-store:active { border-color: var(--gold); }
+.hint {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: 20px;
+}
