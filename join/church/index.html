@@ -3,18 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>마라나타 초대</title>
+  <title>마라나타 교회 초대</title>
   <meta name="theme-color" content="#1A1A1E" />
-  <meta name="description" content="마라나타 초대 — 매일의 말씀과 기도, 함께하는 공동체." />
-  <meta property="og:title" content="마라나타 초대" />
-  <meta property="og:description" content="마라나타 앱에서 함께해요." />
+  <meta name="description" content="마라나타 교회 초대 — 매일의 말씀과 기도를 교회 공동체와 함께." />
+  <meta property="og:title" content="마라나타 교회 초대" />
+  <meta property="og:description" content="마라나타 앱에서 우리 교회와 함께해요." />
   <link rel="stylesheet" href="/join/invite.css" />
 </head>
 <body>
   <main class="card">
     <div class="logo">✦ 마라나타</div>
+
+    <!-- 교회 정보 카드 (URL 파라미터 name 있을 때 invite.js가 채움) -->
+    <div class="church-info" id="churchInfo" hidden>
+      <p class="invite-line">교회에 초대받았어요</p>
+      <h1 class="church-name" id="churchName">—</h1>
+      <p class="church-meta" id="churchMeta" hidden></p>
+    </div>
+
+    <!-- 교회 정보 없을 때의 기본 안내 -->
     <h1 id="title">마라나타 초대</h1>
     <p class="sub" id="sub">매일의 말씀과 기도, 함께하는 공동체.</p>
+
     <div class="code-box" id="codeBox" hidden>
       <span class="code-label">초대 코드</span>
       <span class="code" id="code">—</span>
@@ -24,7 +34,7 @@
       <a class="btn btn-store" id="playBtn" target="_blank" rel="noopener">Google Play에서 설치</a>
       <a class="btn btn-store" id="appStoreBtn" target="_blank" rel="noopener">App Store에서 설치</a>
     </div>
-    <p class="hint">앱을 설치한 뒤 위 초대 코드를 입력하면 바로 참여할 수 있어요.</p>
+    <p class="hint" id="hint">앱을 설치한 뒤 위 초대 코드를 입력하면 바로 참여할 수 있어요.</p>
   </main>
   <script src="/join/invite.js"></script>
 </body>

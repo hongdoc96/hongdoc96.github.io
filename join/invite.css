@@ -49,6 +49,30 @@ h1 { font-size: 22px; font-weight: 700; line-height: 1.4; }
   line-height: 1.6;
   margin-top: 10px;
 }
+/* 교회 초대 카드 — 교회명을 골드로 강조, 지역·교단·예배시간 메타 */
+.church-info {
+  margin-bottom: 4px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--border);
+}
+.invite-line {
+  color: var(--text-muted);
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+.church-name {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--gold);
+}
+.church-meta {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 10px;
+}
 .code-box {
   margin: 24px 0;
   padding: 16px;

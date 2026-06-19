@@ -27,6 +27,34 @@ var APPSTORE_URL = 'https://apps.apple.com/kr/search?term=마라나타';
     subEl.textContent = '매일의 말씀과 기도, 함께하는 공동체.';
   }
 
+  // 교회 초대: 교회 정보 카드 (URL 파라미터 name/region/denom/time).
+  //   church/index.html에만 #churchInfo가 있어, 그 페이지에서 교회명이 오면
+  //   기본 제목 대신 교회 카드를 보여 준다. (group/일반 페이지에는 영향 없음)
+  if (type === 'church') {
+    var q = new URLSearchParams(window.location.search);
+    var cname = (q.get('name') || '').trim();
+    var info = document.getElementById('churchInfo');
+    if (cname && info) {
+      document.getElementById('churchName').textContent = cname;
+      var meta = [q.get('region'), q.get('denom'), q.get('time')]
+        .map(function (s) { return (s || '').trim(); })
+        .filter(Boolean)
+        .join('  ·  ');
+      var metaEl = document.getElementById('churchMeta');
+      if (meta) {
+        metaEl.textContent = meta;
+        metaEl.hidden = false;
+      }
+      info.hidden = false;
+      titleEl.hidden = true;
+      subEl.hidden = true;
+      var hintEl = document.getElementById('hint');
+      if (hintEl) {
+        hintEl.textContent = '앱을 설치하면 이 교회에 바로 가입 신청할 수 있어요.';
+      }
+    }
+  }
+
   // 초대 코드 표시
   if (code) {
     document.getElementById('code').textContent = code;
