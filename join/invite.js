@@ -27,6 +27,21 @@ var APPSTORE_URL = 'https://apps.apple.com/kr/search?term=마라나타';
     subEl.textContent = '매일의 말씀과 기도, 함께하는 공동체.';
   }
 
+  // [7일 함께 걷기]: 앱이 초대 링크에 실어 보낸 source로 첫 인상 카피를 분기.
+  //   walk_complete / challenge_complete = 완주자가 보낸 초대(코드 없음, 신규 유입 타깃).
+  //   group_invite(모임 초대)는 위 label 카피를 그대로 둔다.
+  var source = (new URLSearchParams(window.location.search).get('source') || '').trim();
+  var hintEl0 = document.getElementById('hint');
+  if (source === 'walk_complete') {
+    titleEl.textContent = '누군가 7일을 걷고, 당신을 떠올렸어요';
+    subEl.textContent = "믿음의 첫 한 주 '7일 함께 걷기'. 하루 한 걸음씩, 혼자가 아니라 나란히 걸어요.";
+    if (hintEl0) hintEl0.textContent = '앱을 설치하면 바로 첫 걸음을 시작할 수 있어요.';
+  } else if (source === 'challenge_complete') {
+    titleEl.textContent = '함께 걸을 사람이 당신을 초대했어요';
+    subEl.textContent = '오늘의 말씀과 묵상을 매일 한 걸음씩. 마라나타에서 함께 걸어요.';
+    if (hintEl0) hintEl0.textContent = '앱을 설치하면 바로 시작할 수 있어요.';
+  }
+
   // 교회 초대: 교회 정보 카드 (URL 파라미터 name/region/denom/time).
   //   church/index.html에만 #churchInfo가 있어, 그 페이지에서 교회명이 오면
   //   기본 제목 대신 교회 카드를 보여 준다. (group/일반 페이지에는 영향 없음)
