@@ -9,5 +9,15 @@
         "C6:6B:9E:A7:1A:94:13:B1:EF:86:C7:39:54:6F:A2:E6:FE:68:08:F0:C8:DD:27:6E:4D:BF:06:8C:07:F5:C6:78"
       ]
     }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "kr.hongdoc.hansanmap",
+      "sha256_cert_fingerprints": [
+        "F0:B2:BA:31:18:EF:EE:B5:32:70:1B:DF:BF:61:30:83:27:CE:72:43:6D:78:7B:FA:90:4E:C0:7F:53:B0:12:CA"
+      ]
+    }
   }
 ]

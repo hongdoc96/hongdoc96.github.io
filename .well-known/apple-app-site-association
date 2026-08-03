@@ -5,6 +5,10 @@
       {
         "appID": "BSWF2Y5776.com.hongdoc.maranatha",
         "paths": ["/join/*"]
+      },
+      {
+        "appID": "BSWF2Y5776.kr.hongdoc.hansanmap",
+        "paths": ["/hansanmap-legal/place", "/hansanmap-legal/place/*"]
       }
     ]
   }
