@@ -1,6 +1,8 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.hongdoc.maranatha",
@@ -11,12 +13,15 @@
     }
   },
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "kr.hongdoc.hansanmap",
       "sha256_cert_fingerprints": [
-        "F0:B2:BA:31:18:EF:EE:B5:32:70:1B:DF:BF:61:30:83:27:CE:72:43:6D:78:7B:FA:90:4E:C0:7F:53:B0:12:CA"
+        "F0:B2:BA:31:18:EF:EE:B5:32:70:1B:DF:BF:61:30:83:27:CE:72:43:6D:78:7B:FA:90:4E:C0:7F:53:B0:12:CA",
+        "68:D8:B4:A8:77:98:48:EA:44:FD:E4:3D:7E:2D:47:E7:D8:DC:82:28:98:98:FC:41:EC:5E:6D:AF:E2:30:31:C4"
       ]
     }
   }
