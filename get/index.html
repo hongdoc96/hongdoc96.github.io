@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>마라나타 — 오늘의 말씀과 기도</title>
+  <meta name="description" content="오늘의 말씀·묵상·기도, 그리고 소그룹과 함께 걷는 신앙 앱 마라나타." />
+  <!-- 공유 미리보기(OG) -->
+  <meta property="og:title" content="마라나타 — 오늘의 말씀과 기도" />
+  <meta property="og:description" content="오늘의 말씀을 받고, 기도를 기록하고, 소그룹과 함께 걸어요." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --sapphire: #1C345F;
+      --navy: #142744;
+      --gold: #DAB271;
+      --ink: #F4F1EA;
+      --muted: #B9C2D4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+        "Noto Sans KR", "Malgun Gothic", sans-serif;
+      background: radial-gradient(120% 120% at 50% 0%, var(--sapphire) 0%, var(--navy) 60%, #0E1B30 100%);
+      color: var(--ink);
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .card {
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+    }
+    .star { color: var(--gold); font-size: 34px; line-height: 1; }
+    .brand {
+      margin-top: 14px;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    .brand-en {
+      margin-top: 6px;
+      font-size: 11px;
+      letter-spacing: 5px;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .tagline {
+      margin-top: 20px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    .btns { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; }
+    .btn {
+      display: block;
+      padding: 15px 18px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .06s ease, opacity .2s ease;
+    }
+    .btn:active { transform: scale(.98); }
+    .btn-primary { background: var(--gold); color: #1a1206; }
+    .btn-secondary {
+      background: rgba(255,255,255,.06);
+      color: var(--ink);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .hint { margin-top: 22px; font-size: 12px; color: rgba(185,194,212,.75); line-height: 1.6; }
+    .foot { margin-top: 28px; font-size: 11px; color: rgba(185,194,212,.5); }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="star">✦</div>
+    <div class="brand">마라나타</div>
+    <div class="brand-en">MARANATHA</div>
+    <p class="tagline">오늘의 말씀을 받고, 기도를 기록하고,<br />소그룹과 함께 걷는 신앙 앱.</p>
+
+    <div class="btns" id="btns">
+      <a class="btn btn-primary" id="playBtn"
+         href="https://play.google.com/store/apps/details?id=com.hongdoc.maranatha">
+        Google Play에서 받기
+      </a>
+      <a class="btn btn-secondary" id="appleBtn"
+         href="https://apps.apple.com/kr/app/id6773760023">
+        App Store에서 받기
+      </a>
+    </div>
+
+    <p class="hint">이미 앱이 설치돼 있다면 초대 링크를 다시 눌러 주세요.</p>
+    <p class="foot">홍독 스튜디오 · Hongdoc Studio</p>
+  </main>
+
+  <script>
+    // 설치 랜딩 — 플랫폼 감지 후 해당 스토어로 자동 이동.
+    var PLAY_URL = "https://play.google.com/store/apps/details?id=com.hongdoc.maranatha";
+    var APPLE_URL = "https://apps.apple.com/kr/app/id6773760023";
+
+    var ua = navigator.userAgent || "";
+    var isAndroid = /Android/i.test(ua);
+    var isiOS = /iPhone|iPad|iPod/i.test(ua) ||
+      (/Macintosh/i.test(ua) && "ontouchend" in document); // iPadOS 데스크톱 모드
+    // 자동 이동은 모바일에서만 — 데스크톱은 버튼 두 개를 그대로 보여준다.
+    if (isAndroid) {
+      window.location.replace(PLAY_URL);
+    } else if (isiOS) {
+      window.location.replace(APPLE_URL);
+    }
+  </script>
+</body>
+</html>

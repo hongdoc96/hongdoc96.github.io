@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>페이지를 찾을 수 없어요 · 홍독 스튜디오</title>
+  <meta name="theme-color" content="#142744" />
+  <meta name="description" content="마라나타 — 오늘의 말씀과 기도." />
+  <!-- 이 페이지로 공유되어 들어오는 링크는 /verse/* 뿐이라 미리보기는 마라나타로 둔다
+       (크롤러는 JS를 돌리지 않으므로 정적 값이어야 한다). -->
+  <meta property="og:title" content="마라나타 — 오늘의 말씀과 기도" />
+  <meta property="og:description" content="오늘의 말씀을 받고, 기도를 기록하고, 소그룹과 함께 걸어요." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --sapphire: #1C345F; --navy: #142744; --gold: #DAB271;
+      --ink: #F4F1EA; --muted: #B9C2D4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* .btn{display:block}이 [hidden]을 이기지 않게 — invite.css와 같은 이유 */
+    [hidden] { display: none !important; }
+    html, body { height: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+        "Noto Sans KR", "Malgun Gothic", sans-serif;
+      background: radial-gradient(120% 120% at 50% 0%, var(--sapphire) 0%, var(--navy) 60%, #0E1B30 100%);
+      color: var(--ink);
+      min-height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      padding: 32px 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .card { width: 100%; max-width: 380px; text-align: center; }
+    .star { color: var(--gold); font-size: 34px; line-height: 1; }
+    .brand { margin-top: 14px; font-size: 26px; font-weight: 700; letter-spacing: 2px; }
+    .brand-en { margin-top: 6px; font-size: 11px; letter-spacing: 5px; color: var(--gold); font-weight: 600; }
+    h1 { margin-top: 22px; font-size: 19px; font-weight: 700; line-height: 1.5; }
+    .tagline { margin-top: 14px; font-size: 15px; line-height: 1.7; color: var(--muted); }
+    .btns { margin-top: 30px; display: flex; flex-direction: column; gap: 12px; }
+    .btn {
+      display: block; padding: 15px 18px; border-radius: 14px;
+      font-size: 15px; font-weight: 700; text-decoration: none;
+      transition: transform .06s ease, opacity .2s ease;
+    }
+    .btn:active { transform: scale(.98); }
+    .btn-app { background: var(--gold); color: #1a1206; }
+    .btn-store {
+      background: rgba(255,255,255,.06); color: var(--ink);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .hint { margin-top: 22px; font-size: 12px; color: rgba(185,194,212,.75); line-height: 1.6; }
+    .foot { margin-top: 28px; font-size: 11px; color: rgba(185,194,212,.5); }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="star">✦</div>
+    <div class="brand" id="brand">홍독 스튜디오</div>
+    <div class="brand-en" id="brandEn">HONGDOC STUDIO</div>
+    <h1 id="title">페이지를 찾을 수 없어요</h1>
+    <p class="tagline" id="sub">주소를 다시 확인해 주세요.</p>
+
+    <div class="btns">
+      <a class="btn btn-app" id="openApp" hidden>앱에서 열기</a>
+      <a class="btn btn-store" id="playBtn" hidden
+         href="https://play.google.com/store/apps/details?id=com.hongdoc.maranatha">Google Play에서 받기</a>
+      <a class="btn btn-store" id="appleBtn" hidden
+         href="https://apps.apple.com/kr/app/id6773760023">App Store에서 받기</a>
+      <a class="btn btn-store" id="homeBtn" href="/">홍독 스튜디오 홈으로</a>
+    </div>
+
+    <p class="hint" id="hint" hidden>앱이 설치돼 있으면 링크를 다시 눌러 바로 열 수 있어요.</p>
+    <p class="foot">홍독 스튜디오 · Hongdoc Studio</p>
+  </main>
+
+  <script>
+    // 정적 호스팅 404 라우터.
+    //   /verse/MM/DD 는 366일치 디렉터리를 둘 수 없어 이 페이지가 받아 처리한다.
+    //   앱이 깔려 있으면 iOS는 AASA(/verse/*), Android는 App Links가 먼저 가로채므로
+    //   여기까지 온 방문자는 대개 '앱이 없거나 데스크톱'이다 — 스토어를 자동으로
+    //   띄우지 않고 무엇을 보려던 링크였는지 먼저 알려 준다.
+    (function () {
+      var seg = window.location.pathname.split('/').filter(Boolean);
+      if (seg[0] !== 'verse' || seg.length < 3) return;
+
+      var mm = parseInt(seg[1], 10), dd = parseInt(seg[2], 10);
+      var days = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+      if (!(mm >= 1 && mm <= 12 && dd >= 1 && dd <= days[mm - 1])) return;
+
+      var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+      var path = 'verse/' + pad(mm) + '/' + pad(dd);
+
+      document.getElementById('brand').textContent = '마라나타';
+      document.getElementById('brandEn').textContent = 'MARANATHA';
+      document.title = '마라나타 — ' + mm + '월 ' + dd + '일의 말씀';
+      document.getElementById('title').textContent = mm + '월 ' + dd + '일의 말씀';
+      document.getElementById('sub').textContent =
+        '마라나타 앱에서 이 날의 말씀과 기도를 이어서 볼 수 있어요.';
+
+      var app = document.getElementById('openApp');
+      app.setAttribute('href', 'maranatha://' + path);
+      app.hidden = false;
+      document.getElementById('playBtn').hidden = false;
+      document.getElementById('appleBtn').hidden = false;
+      document.getElementById('homeBtn').hidden = true;
+      document.getElementById('hint').hidden = false;
+    })();
+  </script>
+</body>
+</html>

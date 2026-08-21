@@ -3,11 +3,9 @@
 //   안내 + 스토어 설치 + 'maranatha://' 앱 열기(이미 설치된 경우 폴백)를 채운다.
 //   세 페이지(/join, /join/group, /join/church)가 이 파일을 공유한다.
 
-// ── 스토어 링크 (출시 후 동작) ───────────────────────────────
-//   ⚠️ App Store 정식 숫자 ID 확보 시 APPSTORE_URL을
-//   'https://apps.apple.com/kr/app/id<숫자ID>' 로 교체.
+// ── 스토어 링크 ─────────────────────────────────────────────
 var PLAY_URL = 'https://play.google.com/store/apps/details?id=com.hongdoc.maranatha';
-var APPSTORE_URL = 'https://apps.apple.com/kr/search?term=마라나타';
+var APPSTORE_URL = 'https://apps.apple.com/kr/app/id6773760023';
 
 (function () {
   var path = window.location.pathname;
@@ -32,14 +30,15 @@ var APPSTORE_URL = 'https://apps.apple.com/kr/search?term=마라나타';
   //   group_invite(모임 초대)는 위 label 카피를 그대로 둔다.
   var source = (new URLSearchParams(window.location.search).get('source') || '').trim();
   var hintEl0 = document.getElementById('hint');
+  var hintSet = false; // 아래 분기에서 안내를 이미 갈아끼웠는가
   if (source === 'walk_complete') {
     titleEl.textContent = '누군가 7일을 걷고, 당신을 떠올렸어요';
     subEl.textContent = "믿음의 첫 한 주 '7일 함께 걷기'. 하루 한 걸음씩, 혼자가 아니라 나란히 걸어요.";
-    if (hintEl0) hintEl0.textContent = '앱을 설치하면 바로 첫 걸음을 시작할 수 있어요.';
+    if (hintEl0) { hintEl0.textContent = '앱을 설치하면 바로 첫 걸음을 시작할 수 있어요.'; hintSet = true; }
   } else if (source === 'challenge_complete') {
     titleEl.textContent = '함께 걸을 사람이 당신을 초대했어요';
     subEl.textContent = '오늘의 말씀과 묵상을 매일 한 걸음씩. 마라나타에서 함께 걸어요.';
-    if (hintEl0) hintEl0.textContent = '앱을 설치하면 바로 시작할 수 있어요.';
+    if (hintEl0) { hintEl0.textContent = '앱을 설치하면 바로 시작할 수 있어요.'; hintSet = true; }
   }
 
   // 교회 초대: 교회 정보 카드 (URL 파라미터 name/region/denom/time).
@@ -66,6 +65,7 @@ var APPSTORE_URL = 'https://apps.apple.com/kr/search?term=마라나타';
       var hintEl = document.getElementById('hint');
       if (hintEl) {
         hintEl.textContent = '앱을 설치하면 이 교회에 바로 가입 신청할 수 있어요.';
+        hintSet = true;
       }
     }
   }
@@ -74,6 +74,10 @@ var APPSTORE_URL = 'https://apps.apple.com/kr/search?term=마라나타';
   if (code) {
     document.getElementById('code').textContent = code;
     document.getElementById('codeBox').hidden = false;
+  } else if (!hintSet && hintEl0) {
+    // 코드 없는 초대(프로필 공유 등)에서 기본 안내가 '위 초대 코드'를 가리켰다 —
+    //   코드 상자는 숨어 있으니 가리킬 것이 없다.
+    hintEl0.textContent = '앱을 설치하면 바로 시작할 수 있어요.';
   }
 
   // '앱으로 열기' — 이미 설치된 경우 커스텀 스킴으로 앱 열기(폴백).

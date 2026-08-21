@@ -4,7 +4,7 @@
     "details": [
       {
         "appID": "BSWF2Y5776.com.hongdoc.maranatha",
-        "paths": ["/join/*"]
+        "paths": ["/join/*", "/verse/*"]
       },
       {
         "appID": "BSWF2Y5776.kr.hongdoc.hansanmap",
