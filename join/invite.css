@@ -49,8 +49,11 @@ h1 { font-size: 22px; font-weight: 700; line-height: 1.4; }
   line-height: 1.6;
   margin-top: 10px;
 }
-/* 교회 초대 카드 — 교회명을 골드로 강조, 지역·교단·예배시간 메타 */
-.church-info {
+/* 초대 대상 이름 카드 — 이름을 골드로 강조. 교회는 지역·교단·예배시간 메타까지.
+   모임(.group-*)도 같은 모양을 쓴다 — 초대받는 사람이 먼저 보는 것은 '어디로부터의
+   초대인가'이고, 그 자리는 종류와 무관하게 같다. */
+.church-info,
+.group-info {
   margin-bottom: 4px;
   padding-bottom: 22px;
   border-bottom: 1px solid var(--border);
@@ -61,7 +64,8 @@ h1 { font-size: 22px; font-weight: 700; line-height: 1.4; }
   letter-spacing: 1px;
   margin-bottom: 10px;
 }
-.church-name {
+.church-name,
+.group-name {
   font-size: 26px;
   font-weight: 700;
   line-height: 1.35;

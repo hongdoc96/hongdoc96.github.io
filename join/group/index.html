@@ -5,16 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>마라나타 초대</title>
   <meta name="theme-color" content="#1A1A1E" />
-  <meta name="description" content="마라나타 초대 — 매일의 말씀과 기도, 함께하는 공동체." />
-  <meta property="og:title" content="마라나타 초대" />
-  <meta property="og:description" content="마라나타 앱에서 함께해요." />
+  <meta name="description" content="마라나타 모임 초대 — 함께 말씀을 읽고 기도하는 자리." />
+  <!-- 미리보기 카드(카카오톡·문자·SNS). 초대는 대부분 카카오톡으로 나가는데,
+       og:image가 없으면 썸네일 없는 맨 텍스트 한 줄로 뜬다 — 받는 사람의 첫인상이다.
+       og:url은 일부러 넣지 않는다: 스크래퍼가 그것을 카드 링크로 쓰면
+       쿼리(?code=)가 빠진 주소로 보내 초대 코드를 잃는다. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="마라나타" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:title" content="모임 초대 — 마라나타" />
+  <meta property="og:description" content="함께 말씀을 읽고 기도하는 모임에 초대받았어요. 앱을 설치하면 초대 코드로 바로 참여할 수 있어요." />
+  <meta property="og:image" content="https://hongdoc96.github.io/join/og-invite.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="마라나타 — 오늘의 말씀과 기도" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="모임 초대 — 마라나타" />
+  <meta name="twitter:description" content="함께 말씀을 읽고 기도하는 모임에 초대받았어요." />
+  <meta name="twitter:image" content="https://hongdoc96.github.io/join/og-invite.png" />
   <link rel="stylesheet" href="/join/invite.css" />
 </head>
 <body>
   <main class="card">
     <div class="logo">✦ 마라나타</div>
+
+    <!-- 모임 정보 카드 (URL 파라미터 name 있을 때 invite.js가 채움).
+         앱은 v6.1146부터 ?name= 에 모임명을 실어 보내는데, 여태 그것을 받을
+         자리가 이 페이지에 없어서 초대받는 사람이 어느 모임인지 못 봤다. -->
+    <div class="group-info" id="groupInfo" hidden>
+      <p class="invite-line">모임에 초대받았어요</p>
+      <h1 class="group-name" id="groupName">—</h1>
+    </div>
+
+    <!-- 모임명이 없을 때의 기본 안내 -->
     <h1 id="title">마라나타 초대</h1>
     <p class="sub" id="sub">매일의 말씀과 기도, 함께하는 공동체.</p>
+
     <div class="code-box" id="codeBox" hidden>
       <span class="code-label">초대 코드</span>
       <span class="code" id="code">—</span>
@@ -24,7 +50,7 @@
       <a class="btn btn-store" id="playBtn" target="_blank" rel="noopener">Google Play에서 설치</a>
       <a class="btn btn-store" id="appStoreBtn" target="_blank" rel="noopener">App Store에서 설치</a>
     </div>
-    <p class="hint">앱을 설치한 뒤 위 초대 코드를 입력하면 바로 참여할 수 있어요.</p>
+    <p class="hint" id="hint">앱을 설치한 뒤 위 초대 코드를 입력하면 바로 참여할 수 있어요.</p>
   </main>
   <script src="/join/invite.js"></script>
 </body>

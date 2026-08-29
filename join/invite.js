@@ -41,32 +41,42 @@ var APPSTORE_URL = 'https://apps.apple.com/kr/app/id6773760023';
     if (hintEl0) { hintEl0.textContent = '앱을 설치하면 바로 시작할 수 있어요.'; hintSet = true; }
   }
 
-  // 교회 초대: 교회 정보 카드 (URL 파라미터 name/region/denom/time).
-  //   church/index.html에만 #churchInfo가 있어, 그 페이지에서 교회명이 오면
-  //   기본 제목 대신 교회 카드를 보여 준다. (group/일반 페이지에는 영향 없음)
-  if (type === 'church') {
-    var q = new URLSearchParams(window.location.search);
-    var cname = (q.get('name') || '').trim();
-    var info = document.getElementById('churchInfo');
-    if (cname && info) {
-      document.getElementById('churchName').textContent = cname;
+  // 초대 대상 이름 카드 (URL 파라미터 name — 교회는 region/denom/time까지).
+  //   이름이 오면 기본 제목 대신 그 카드를 보여 준다. 이름을 담을 요소가 없는
+  //   페이지(/join 루트)에서는 아무 일도 하지 않는다.
+  //   ⚠️ 2026-08-29: 이 처리가 통째로 `type === 'church'` 안에 있어서, 앱이
+  //   v6.1146부터 모임 초대에도 실어 보내던 ?name= 을 **아무도 읽지 않았다**
+  //   (그룹 페이지엔 담을 요소조차 없었다). 종류와 무관한 처리로 바꾼다 —
+  //   교회의 지역·교단·예배시간 메타만 교회일 때 추가로 채운다.
+  var q = new URLSearchParams(window.location.search);
+  var nameParam = (q.get('name') || '').trim();
+  var isChurch = type === 'church';
+  var infoEl = document.getElementById(isChurch ? 'churchInfo' : 'groupInfo');
+  var nameEl = document.getElementById(isChurch ? 'churchName' : 'groupName');
+  if (type && nameParam && infoEl && nameEl) {
+    nameEl.textContent = nameParam;
+    if (isChurch) {
       var meta = [q.get('region'), q.get('denom'), q.get('time')]
         .map(function (s) { return (s || '').trim(); })
         .filter(Boolean)
         .join('  ·  ');
       var metaEl = document.getElementById('churchMeta');
-      if (meta) {
+      if (meta && metaEl) {
         metaEl.textContent = meta;
         metaEl.hidden = false;
       }
-      info.hidden = false;
-      titleEl.hidden = true;
-      subEl.hidden = true;
-      var hintEl = document.getElementById('hint');
-      if (hintEl) {
-        hintEl.textContent = '앱을 설치하면 이 교회에 바로 가입 신청할 수 있어요.';
-        hintSet = true;
-      }
+    }
+    infoEl.hidden = false;
+    titleEl.hidden = true;
+    subEl.hidden = true;
+    if (hintEl0) {
+      // 코드가 없는 초대에서는 '위 초대 코드'를 가리키지 않는다 — 코드 상자가 숨어 있다.
+      hintEl0.textContent = isChurch
+        ? '앱을 설치하면 이 교회에 바로 가입 신청할 수 있어요.'
+        : (code
+            ? '앱을 설치하고 위 초대 코드를 입력하면 이 모임에 바로 참여할 수 있어요.'
+            : '앱을 설치하면 이 모임에 바로 참여할 수 있어요.');
+      hintSet = true;
     }
   }
 
