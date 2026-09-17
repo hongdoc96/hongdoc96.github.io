@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>5월 13일의 묵상 — 마라나타 — 마라나타</title>
+  <meta name="theme-color" content="#142744" />
+  <meta name="description" content="마라나타에서 이 날의 묵상과 기도를 이어서 보세요." />
+  <!-- v6.1815: 크롤러는 JS를 돌리지 않는다. 카카오톡·문자 미리보기에 그날의 묵상이
+       실리려면 이 값들이 **정적**이어야 한다. `/meditation/MM/DD` 는 그동안 404였고
+       (2026-09-18 실측) 404 응답에서 카드를 아예 안 만드는 플랫폼도 있다.
+       🔴 개역개정 본문·묵상 본문·기도문·적용 질문은 싣지 않는다 — 여기 있는 것은
+       마라나타가 쓴 한 줄 제목과 성경 출처 표기뿐이다. 본문까지 싣는 읽기 화면은
+       `deeplink/meditation_web/` 이고 그쪽은 웹 공개 허락 확인 전까지 보류다. -->
+  <meta property="og:title" content="5월 13일의 묵상 — 마라나타" />
+  <meta property="og:description" content="마라나타에서 이 날의 묵상과 기도를 이어서 보세요." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://hongdoc96.github.io/meditation/05/13/" />
+  <meta property="og:image" content="https://hongdoc96.github.io/meditation/og-meditation.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="마라나타 — 오늘의 말씀과 기도" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="5월 13일의 묵상 — 마라나타" />
+  <meta name="twitter:description" content="마라나타에서 이 날의 묵상과 기도를 이어서 보세요." />
+  <meta name="twitter:image" content="https://hongdoc96.github.io/meditation/og-meditation.png" />
+  <style>
+    :root {
+      --sapphire: #1C345F; --navy: #142744; --gold: #DAB271;
+      --ink: #F4F1EA; --muted: #B9C2D4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    [hidden] { display: none !important; }
+    html, body { height: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+        "Noto Sans KR", "Malgun Gothic", sans-serif;
+      background: radial-gradient(120% 120% at 50% 0%, var(--sapphire) 0%, var(--navy) 60%, #0E1B30 100%);
+      color: var(--ink);
+      min-height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      padding: 32px 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .card { width: 100%; max-width: 380px; text-align: center; }
+    .star { color: var(--gold); font-size: 34px; line-height: 1; }
+    .brand { margin-top: 14px; font-size: 26px; font-weight: 700; letter-spacing: 2px; }
+    .brand-en { margin-top: 6px; font-size: 11px; letter-spacing: 5px; color: var(--gold); font-weight: 600; }
+    .date { margin-top: 24px; font-size: 12px; letter-spacing: 2px; color: var(--gold); font-weight: 600; }
+    h1 { margin-top: 10px; font-size: 22px; font-weight: 700; line-height: 1.5; word-break: keep-all; }
+    .ref { margin-top: 12px; font-size: 14px; color: var(--muted); }
+    .tagline { margin-top: 18px; font-size: 14px; line-height: 1.7; color: var(--muted); word-break: keep-all; }
+    .btns { margin-top: 30px; display: flex; flex-direction: column; gap: 12px; }
+    .btn {
+      display: block; padding: 15px 18px; border-radius: 14px;
+      font-size: 15px; font-weight: 700; text-decoration: none;
+      transition: transform .06s ease, opacity .2s ease;
+    }
+    .btn:active { transform: scale(.98); }
+    .btn-app { background: var(--gold); color: #1a1206; }
+    .btn-store {
+      background: rgba(255,255,255,.06); color: var(--ink);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .hint { margin-top: 22px; font-size: 12px; color: rgba(185,194,212,.75); line-height: 1.6; }
+    .foot { margin-top: 28px; font-size: 11px; color: rgba(185,194,212,.5); }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="star">✦</div>
+    <div class="brand">마라나타</div>
+    <div class="brand-en">MARANATHA</div>
+
+    <div class="date">5월 13일</div>
+    <h1>5월 13일의 묵상</h1>
+    <p class="ref" id="ref" hidden></p>
+    <p class="tagline">마라나타 앱에서 이 날의 묵상과 기도를 이어서 볼 수 있어요.</p>
+
+    <div class="btns">
+      <!-- 🔴 말씀과 달리 묵상 링크는 **발행 연도가 필수**다(`resolveMeditationDeepLinkDate`).
+           연도가 없으면 앱이 "날짜와 연도가 필요해요"로 되돌리므로, 여는 버튼을
+           내놓지 않는다 — 눌리는데 아무것도 안 되는 버튼을 두지 않는다. -->
+      <a class="btn btn-app" id="openApp" href="maranatha://meditation/05/13" hidden>앱에서 열기</a>
+      <a class="btn btn-store"
+         href="https://play.google.com/store/apps/details?id=com.hongdoc.maranatha">Google Play에서 받기</a>
+      <a class="btn btn-store"
+         href="https://apps.apple.com/kr/app/id6773760023">App Store에서 받기</a>
+    </div>
+
+    <p class="hint" id="hintYear">이 링크에는 발행 연도가 없어 앱에서 바로 열 수 없어요. 앱에서 그 날짜의 묵상을 찾아보실 수 있어요.</p>
+    <p class="hint" id="hintApp" hidden>앱이 설치돼 있으면 링크를 다시 눌러 바로 열 수 있어요.</p>
+    <p class="foot">홍독 스튜디오 · Hongdoc Studio</p>
+  </main>
+
+  <script>
+    // 발행 연도(`?y=`)를 앱 링크에 그대로 잇는다. 묵상 조회는 연도 의존이라
+    // (이동 절기 재배치·윤일) 공유자가 본 해를 잃으면 다른 본문이 열린다.
+    // 값은 4자리 숫자일 때만 쓴다 — 임의 문자열을 앱 스킴에 이어 붙이지 않는다.
+    (function () {
+      var y = new URLSearchParams(window.location.search).get('y');
+      if (!/^\d{4}$/.test(y || '')) return;
+      var app = document.getElementById('openApp');
+      app.setAttribute('href', app.getAttribute('href') + '?y=' + y);
+      app.hidden = false;
+      document.getElementById('hintYear').hidden = true;
+      document.getElementById('hintApp').hidden = false;
+    })();
+  </script>
+</body>
+</html>
